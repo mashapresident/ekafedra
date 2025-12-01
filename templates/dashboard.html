@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Головна - єКафедра{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+    <h2>Ласкаво просимо, {{ student.full_name }}!</h2>
+    
+    <div class="info-cards">
+        <div class="info-card">
+            <h3>Особиста інформація</h3>
+            <div class="info-item">
+                <span class="label">ПІБ:</span>
+                <span class="value">{{ student.full_name }}</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Група:</span>
+                <span class="value">{{ group_name }}</span>
+            </div>
+            <div class="info-item">
+                <span class="label">Рік вступу:</span>
+                <span class="value">{{ student.year_of_entrance }}</span>
+            </div>
+        </div>
+        
+        <div class="info-card">
+            <h3>Куратор</h3>
+            <div class="info-item">
+                <span class="label">Куратор групи:</span>
+                <span class="value">{{ curator_name }}</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="quick-links">
+        <a href="{{ url_for('subjects') }}" class="link-card">
+            <h3>📚 Предмети</h3>
+            <p>Переглянути список предметів</p>
+        </a>
+        <a href="{{ url_for('info') }}" class="link-card">
+            <h3>ℹ️ Інформація</h3>
+            <p>Новини та клуби кафедри</p>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+

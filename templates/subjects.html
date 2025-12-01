@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Предмети - єКафедра{% endblock %}
+
+{% block content %}
+<div class="subjects-container">
+    <h2>Список предметів для першокурсників</h2>
+    
+    <div class="subjects-list">
+        {% if subjects %}
+            {% for subject in subjects %}
+            <div class="subject-card">
+                <h3>{{ subject.name }}</h3>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-data">Предмети не знайдено</p>
+        {% endif %}
+    </div>
+    
+    <div class="back-link">
+        <a href="{{ url_for('dashboard') }}" class="btn-secondary">Повернутися на головну</a>
+    </div>
+</div>
+{% endblock %}
+
+

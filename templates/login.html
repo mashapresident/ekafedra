@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Вхід - єКафедра{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="login-box">
+        <h2>Вхід до системи</h2>
+        <p class="subtitle">Введіть ваш код доступу</p>
+        
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="form-group">
+                <label for="entrance_code">Код доступу:</label>
+                <input 
+                    type="text" 
+                    id="entrance_code" 
+                    name="entrance_code" 
+                    required 
+                    autofocus
+                    placeholder="Введіть код доступу"
+                    class="form-input"
+                >
+            </div>
+            
+            <button type="submit" class="btn-primary">Увійти</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+

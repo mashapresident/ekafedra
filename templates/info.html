@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}Інформація - єКафедра{% endblock %}
+
+{% block content %}
+<div class="info-container">
+    <h2>Інформація про кафедру</h2>
+    
+    <section class="news-section">
+        <h3>Новини кафедри</h3>
+        <ul class="news-list">
+            {% for item in news %}
+            <li class="news-item">{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </section>
+    
+    <section class="robotics-section">
+        <h3>Клуб робототехніки</h3>
+        <div class="robotics-info">
+            <p>{{ robotics_info }}</p>
+        </div>
+    </section>
+    
+    <div class="back-link">
+        <a href="{{ url_for('dashboard') }}" class="btn-secondary">Повернутися на головну</a>
+    </div>
+</div>
+{% endblock %}
+
+

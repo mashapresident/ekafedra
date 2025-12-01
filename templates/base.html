@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}єКафедра{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>єКафедра</h1>
+            {% if session.get('student_id') %}
+            <nav>
+                <a href="{{ url_for('dashboard') }}">Головна</a>
+                <a href="{{ url_for('subjects') }}">Предмети</a>
+                <a href="{{ url_for('info') }}">Інформація</a>
+                <a href="{{ url_for('logout') }}">Вихід</a>
+            </nav>
+            {% endif %}
+        </header>
+        
+        <main>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    <div class="messages">
+                        {% for category, message in messages %}
+                            <div class="alert alert-{{ category }}">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            
+            {% block content %}{% endblock %}
+        </main>
+        
+        <footer>
+            <p>&copy; 2024 єКафедра - Веб-довідник для абітурієнтів</p>
+        </footer>
+    </div>
+</body>
+</html>
+
+
